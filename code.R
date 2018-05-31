@@ -4,8 +4,8 @@ library(stringr)
 library(caret)
 library(car)
 
-Training_data <- read.csv("E:/Animesh Gupta/Analytics/Analytics Vidhya/Practice Problem - Big Mart Sales III/Train_UWu5bXk.csv")
-Test_data <- read.csv("E:/Animesh Gupta/Analytics/Analytics Vidhya/Practice Problem - Big Mart Sales III/Test_u94Q5KV.csv")
+Training_data <- read.csv("Train_UWu5bXk.csv")
+Test_data <- read.csv("Test_u94Q5KV.csv")
 
 x1 <- rep(0, length=nrow(Training_data))
 for (i in 1:nrow(Training_data)) {
@@ -157,4 +157,4 @@ xgb <- xgboost(data = data.matrix(dataframe[1:floor(0.50 * nrow(Training_data)),
 Item_Outlet_Sales <- predict(xgb, data.matrix(dataframe_2))
 x <- data.frame(Item_Identifier = Test_data[, 1], Outlet_Identifier = Test_data[, 7], Item_Outlet_Sales, objective = "reg:linear", max_depth = 3, seed = 2)
 x <- x[, 1:3]
-write.csv(x, file = "predicted_values_2.csv")
+write.csv(x, file = "70_59253_us_predicted_values_2_aBZV09e.csv")
